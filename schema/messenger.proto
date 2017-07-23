@@ -1,0 +1,16 @@
+syntax = "proto3";
+package messenger;
+
+
+message Request {
+    string query = 1;
+}
+
+message Reply {
+    string response = 1;
+}
+
+
+service Messenger {
+    rpc SendMessage (Request) returns (Reply) {}
+}

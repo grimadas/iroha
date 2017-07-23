@@ -12,17 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set(CMAKE_BUILD_TYPE Debug)
+add_library(messenger_server STATIC messenger_server.cpp)
+target_link_libraries(messenger_server
+        messenger_grpc
+        )
 
-SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/test_bin)
-
-# Reusable tests
-add_subdirectory(ametsuchi)
-#add_subdirectory(api)
-add_subdirectory(consensus)
-add_subdirectory(logger)
-add_subdirectory(validation)
-add_subdirectory(torii)
-add_subdirectory(peerservice)
-add_subdirectory(model)
-add_subdirectory(messenger)
+add_library(messenger_client STATIC messenger_client.cpp)
+target_link_libraries(messenger_client
+        messenger_grpc
+        )

@@ -9,6 +9,7 @@ compile_proto_to_cpp(queries.proto)
 compile_proto_to_cpp(responses.proto)
 compile_proto_to_grpc_cpp(endpoint.proto)
 compile_proto_to_grpc_cpp(peer_service.proto)
+compile_proto_to_grpc_cpp(messenger.proto)
 
 add_dependencies(commandsproto_h primitiveproto_h)
 add_dependencies(queriesproto_h primitiveproto_h)
@@ -47,3 +48,13 @@ target_link_libraries(peer_service_grpc
         grpc++
         )
 
+add_library(messenger_grpc
+        messenger.grpc.pb.cc
+        messenger.grpc.pb.h
+        messenger.pb.cc
+        messenger.pb.h
+        )
+target_link_libraries(messenger_grpc
+        protobuf
+        grpc++
+        )
