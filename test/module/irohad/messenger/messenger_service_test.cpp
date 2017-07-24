@@ -38,8 +38,15 @@ TEST_F(MessengerServiceTest, MessengerSync) {
   iroha::model::Peer peer;
   peer.address = "localhost:50051";
   MessengerClient client(peer.address);
+
   std::string request("hi");
-  std::string reply = client.doRequest(request);
+
+  // this call is async
+  client.doRequest(request);
+
+  // after some time we check a queue (sync call)
+  auto reply = client.asyncCompleteRPC();
+
   std::cout << "Answer received: " << reply << std::endl;
   ASSERT_EQ(reply, "hi!");
 }
