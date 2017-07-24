@@ -18,8 +18,8 @@
 #ifndef IROHA_MESSENGER_SERVER_RUNNER_HPP
 #define IROHA_MESSENGER_SERVER_RUNNER_HPP
 
-#include <grpc++/security/server_credentials.h>
-#include <grpc++/server_builder.h>
+
+#include <grpc++/grpc++.h>
 #include "messenger_server.hpp"
 
 class MessengerServerRunner {

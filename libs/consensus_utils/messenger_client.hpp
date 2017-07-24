@@ -18,6 +18,8 @@ limitations under the License.
 #define MESSENGER_CLIENT_H
 
 #include <messenger.grpc.pb.h>
+#include <grpc++/grpc++.h>
+#include <messenger.pb.h>
 
 using namespace grpc;
 
