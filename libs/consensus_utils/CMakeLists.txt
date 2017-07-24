@@ -21,3 +21,8 @@ add_library(messenger_client STATIC messenger_client.cpp)
 target_link_libraries(messenger_client
         messenger_grpc
         )
+
+add_library(messenger_server_runner STATIC messenger_server_runner.cpp)
+target_link_libraries(messenger_server_runner
+        messenger_grpc
+        )

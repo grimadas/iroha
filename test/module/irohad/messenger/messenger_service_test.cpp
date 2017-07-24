@@ -15,36 +15,29 @@ limitations under the License.
 */
 
 #include <gtest/gtest.h>
-#include <main/server_runner.hpp>
+#include <grpc++/grpc++.h>
 #include "consensus_utils/messenger_client.hpp"
-#include "consensus_utils/messenger_server.hpp"
-
-#include <atomic>
-#include <thread>
+#include <consensus_utils/messenger_server_runner.hpp>
+#include <model/peer.hpp>
 
 using namespace grpc;
 
 class MessengerServiceTest : public ::testing::Test {
  private:
-  ServerBuilder builder;
-  MessengerServerImpl service;
-  std::unique_ptr<Server> server;
+  MessengerServerRunner runner_;
 
  public:
   virtual void SetUp() {
-    std::string server_address("0.0.0.0:50051");
-    builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
-    builder.RegisterService(&service);
-    server = builder.BuildAndStart();
-    std::cout << "Server listening on " << server_address << std::endl;
+    runner_.run("0.0.0.0:50051");
   }
 
   virtual void TearDown() {}
 };
 
 TEST_F(MessengerServiceTest, MessengerSync) {
-  MessengerClient client(grpc::CreateChannel(
-      "localhost:50051", grpc::InsecureChannelCredentials()));
+  iroha::model::Peer peer;
+  peer.address = "localhost:50051";
+  MessengerClient client(peer.address);
   std::string request("hi");
   std::string reply = client.doRequest(request);
   std::cout << "Answer received: " << reply << std::endl;

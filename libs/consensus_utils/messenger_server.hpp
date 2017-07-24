@@ -22,6 +22,7 @@ limitations under the License.
 using namespace grpc;
 
 class MessengerServerImpl final : public messenger::Messenger::Service {
+ public:
   Status SendMessage(ServerContext* context, const messenger::Request* request,
                      messenger::Reply* response) override {
     // TODO: add some logic here

@@ -23,8 +23,9 @@ using namespace grpc;
 
 class MessengerClient {
  public:
-  MessengerClient(std::shared_ptr<ChannelInterface> channel)
-      : stub_(messenger::Messenger::NewStub(channel)) {}
+  MessengerClient(std::string &address)
+      : stub_(messenger::Messenger::NewStub(grpc::CreateChannel(
+            address, grpc::InsecureChannelCredentials()))) {}
 
   std::string doRequest(std::string &requestString) {
     ClientContext context;
