@@ -1,9 +1,9 @@
+# What is Hyperledger Iroha?
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![CircleCI](https://circleci.com/gh/hyperledger/iroha/tree/master.svg?style=svg)](https://circleci.com/gh/hyperledger/iroha/tree/master)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/960/badge)](https://bestpractices.coreinfrastructure.org/projects/960)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4d8edb74d4954c76a4656a9e109dbc4e)](https://www.codacy.com/app/neewy/iroha?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hyperledger/iroha&amp;utm_campaign=Badge_Grade)
-
-# What is Hyperledger Iroha?
 
 Blockchain platform Hyperledger Iroha is designed for simple creation and management of assets. This is a distributed ledger of transactions.
 
@@ -25,11 +25,11 @@ Among the non-functional requirements can be noted:
 * quick processing of queries (less than 3 seconds in normal operating conditions)
 * the system's bandwidth capacity (expected value of 100 thousand transactions per second)
 
-# Current Status
+## Current Status
 
 Iroha is in development, with an estimate of v0.95 preview release in August. 
 
-# Iroha repository 101
+## Iroha repository 101
 
 System runs as a daemon, representing single peer in Iroha network. For each peer there is following package structure, corresponing to components of the system:
 * Torii (gate) — package contains classes, which are in charge of interaction with users (clients)
@@ -54,23 +54,23 @@ There components are passing following _model objects_, which represent entities
 
 For other components and more explanation please take a look at *technical and design docs.*
 
-# Quickstart
+## Quickstart
 
-## Preconditions
+### Preconditions
 
 
-# Documentation
+## Documentation
  - [Architecture](./docs/architecture.md)
  - [Build iroha in local environment](./docs/how_to_build.rst)
  - [Using docker to build iroha container](./docker/README.md)
  - [Deploying a network of N nodes](./docs/iroha_network.md)
 
-# Authors
+## Authors
 
 [MakotoTakemiya](https://github.com/takemiyamakoto)  
 [MizukiSonoko](https://github.com/MizukiSonoko)
 
-# License
+## License
 
 Copyright 2016, 2017 Soramitsu Co., Ltd.
 
