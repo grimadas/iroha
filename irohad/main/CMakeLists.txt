@@ -34,8 +34,12 @@ target_link_libraries(genesis_block_server
   logger
 )
 
-add_library(application application.cpp)
+add_library(application
+    application.cpp
+    impl/consensus_init.cpp
+    )
 target_link_libraries(application
+  yac
   server_runner
   model
   ametsuchi
